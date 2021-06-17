@@ -57,8 +57,15 @@ public class StatusController {
         return "redirect:/status/allStatuses";
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String delete(@PathVariable("id") int id) {
+     @GetMapping("/delete/{id}")
+     public String delete(@PathVariable("id") int id, Model model){
+        model.addAttribute("status", statusService.getStatusById(id));
+        return "/statuses/delete";
+     }
+
+
+    @DeleteMapping("/deleteStatus/{id}")
+    public String deleteStatus(@PathVariable("id") int id) {
         statusService.delete(id);
         return "redirect:/status/allStatuses";
     }

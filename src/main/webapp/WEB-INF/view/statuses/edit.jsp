@@ -15,5 +15,7 @@
     <input type="submit" value="Update">
 
 </form:form>
+<br><br>
+ <a href="/status/delete/${status.id}">Delete Status</a>
 </body>
 </html>
