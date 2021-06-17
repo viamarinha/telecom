@@ -76,4 +76,7 @@ public class RegionDao {
         }
         return region;
     }
+
+    public void updateRegion(int id, Region region) {
+    }
 }

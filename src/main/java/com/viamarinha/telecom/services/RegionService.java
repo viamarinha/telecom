@@ -24,4 +24,8 @@ public class RegionService {
     public Region getRegionById(int id) {
         return regionDao.getRegionById(id);
     }
+
+    public void updateRegion(int id, Region region) {
+        regionDao.updateRegion(id, region);
+    }
 }
