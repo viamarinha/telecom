@@ -8,13 +8,27 @@
     <title>Title</title>
 </head>
 <body>
+<div>
 
 
-<form:form method="DELETE" action="/status/delete/${status.id}" modelAttribute="status">
+    Id <c:out value="${status.id}"/>
+    <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
+    ${lineBreaks}
+    Active <c:out value="${status.active}"/>
+    <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
+    ${lineBreaks}
+    In service <c:out value="${status.inService}"/>
+    <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
+    ${lineBreaks}
+    Functional <c:out value="${status.functional}"/>
 
-  Id Status to be deleted  <form:input path="id"/>
+</div>
+
+<form:form method="DELETE" action="/status/delete/${status.id}">
+
     <input type="submit" value="Delete"/>
-
+    <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
+    ${lineBreaks}
 
 </form:form>
 </body>
