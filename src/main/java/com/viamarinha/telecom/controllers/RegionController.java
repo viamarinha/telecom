@@ -43,5 +43,12 @@ public class RegionController {
         return "redirect:/regions/allRegions";
     }
 
+    @GetMapping("delete/{id}")
+        public String delete(@PathVariable("id") int id, Model model){
+           model.addAttribute("region", regionService.getRegionById(id));
+        return "/regions/delete";
+        }
+
+
 
 }
