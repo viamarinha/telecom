@@ -1,14 +1,11 @@
 package com.viamarinha.telecom.daos;
 
-import com.viamarinha.telecom.models.City;
 import com.viamarinha.telecom.models.Region;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -39,5 +36,7 @@ public class RegionDao {
     }
 
     public void updateRegion(int id, Region region) {
+        jdbcTemplate.update("UPDATE  regions SET code =?, shortName =? WHERE id=?",
+                region.getCode(), region.getShortName(), id);
     }
 }
