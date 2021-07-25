@@ -12,6 +12,6 @@
         <br><br>
         ShortName <c:out value="${region.shortName}"/>
         <br><br>
-        City <c:out value="${region.city.code}"/>
+
     </body>
 </html>

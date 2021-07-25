@@ -13,7 +13,7 @@
     <c:out value="${region.code}"/>
     <c:out value="${region.id}"/>
     <c:out value="${region.shortName}"/>
-    <c:out value="${region.city.code}"/>
+
 
 
     <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>

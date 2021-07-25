@@ -1,6 +1,5 @@
 package com.viamarinha.telecom.models;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,23 +7,19 @@ public class Region {
     private int id;
     private String code;
     private String shortName;
-    private City city;
 
-    @Autowired
-    public Region(City city) {
-        this.city = city;
-    }
 
     public Region() {
     }
 
-    public Region(String code, String shortName, City city) {
+    public Region(String code, String shortName) {
         this.code = code;
         this.shortName = shortName;
-        this.city = city;
+
     }
 
-    public Region(String code, String shortName) {
+    public Region(int id, String code, String shortName) {
+        this.id = id;
         this.code = code;
         this.shortName = shortName;
     }
@@ -53,11 +48,12 @@ public class Region {
         this.shortName = shortName;
     }
 
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
+    @Override
+    public String toString() {
+        return "Region{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", shortName='" + shortName + '\'' +
+                '}';
     }
 }

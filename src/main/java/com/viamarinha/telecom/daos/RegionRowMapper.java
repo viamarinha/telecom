@@ -1,6 +1,5 @@
 package com.viamarinha.telecom.daos;
 
-import com.viamarinha.telecom.models.City;
 import com.viamarinha.telecom.models.Region;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -14,7 +13,7 @@ public class RegionRowMapper implements RowMapper<Region> {
         Region region = new Region();
         region.setId(resultSet.getInt("id"));
         region.setCode(resultSet.getString("code"));
-        region.setCity(resultSet.getObject("cityid", City.class));
+       // region.setCity(resultSet.getObject("cityid", City.class));
 
         return region;
     }

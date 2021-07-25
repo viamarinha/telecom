@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("regions")
+@RequestMapping("/regions")
 public class RegionController {
 
 
@@ -19,7 +19,7 @@ public class RegionController {
         this.regionService = regionService;
     }
 
-    @GetMapping("allRegions")
+    @GetMapping("/allRegions")
     public String getAllRegions(Model model) {
         model.addAttribute("regions", regionService.getAllRegions());
         return "regions/allRegions";
