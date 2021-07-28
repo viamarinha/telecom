@@ -1,13 +1,19 @@
 package com.viamarinha.telecom.models;
 
-import org.springframework.stereotype.Component;
 
-@Component
 public class Region {
     private int id;
     private String code;
     private String shortName;
+    private int cityId;
 
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
 
     public Region() {
     }
@@ -47,6 +53,7 @@ public class Region {
     public void setShortName(String shortName) {
         this.shortName = shortName;
     }
+
 
     @Override
     public String toString() {

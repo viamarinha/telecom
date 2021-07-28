@@ -1,5 +1,6 @@
 package com.viamarinha.telecom.config;
 
+import com.viamarinha.telecom.models.City;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -53,4 +54,9 @@ public class SpringConfig implements WebMvcConfigurer {
     public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
+//
+//    @Bean
+//    public City.CityBuilder cityBuilder(){
+//        return new City.CityBuilder();
+//    }
 }

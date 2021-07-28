@@ -9,7 +9,15 @@
 <body>
 <c:forEach var="city" items="${cities}">
     <a href="/cities/edit/${city.id}">${city.id}</a>
-    Code  <c:out value="${city.code}"/>
+    Code <c:out value="${city.code}"/>
+
+    <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
+    ${lineBreaks}
+
+    Regions <c:forEach var="region" items="${city.regions}">
+    <c:out value="${region}"/>
+
+</c:forEach>
 
     <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
     ${lineBreaks}

@@ -26,7 +26,7 @@ public class CitiesController {
 
     @GetMapping("/createNewCity")
     public String createNewCity(Model model) {
-        model.addAttribute("city", new City());
+        model.addAttribute("city", new City.CityBuilder().build());
         return "/cities/newCity";
     }
 
