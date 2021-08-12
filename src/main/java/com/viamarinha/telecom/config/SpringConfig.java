@@ -1,7 +1,7 @@
 package com.viamarinha.telecom.config;
 
-import com.viamarinha.telecom.models.City;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -26,6 +26,18 @@ public class SpringConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
 
+    @Value("${jdbc.url}")
+    private String jdbcUrl;
+
+    @Value("${postgresql.driver}")
+    private String postgresqlDriver;
+
+    @Value("${db.username}")
+    private String username;
+
+    @Value("${db.password}")
+    private String password;
+
     @Autowired
     public SpringConfig(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
@@ -44,19 +56,15 @@ public class SpringConfig implements WebMvcConfigurer {
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/telecom");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("Mara@2016");
+        dataSource.setDriverClassName(postgresqlDriver);
+        dataSource.setUrl(jdbcUrl);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
         return dataSource;
     }
     @Bean
     public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
-//
-//    @Bean
-//    public City.CityBuilder cityBuilder(){
-//        return new City.CityBuilder();
-//    }
+
 }
