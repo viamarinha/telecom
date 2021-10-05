@@ -25,8 +25,8 @@ public class StatusDao {
     }
 
     public Status getStatusById(int id) {
-        return jdbcTemplate.query("SELECT * FROM statuses WHERE id=?", new Object[]{id},
-                new BeanPropertyRowMapper<>(Status.class))
+        return jdbcTemplate.query("SELECT * FROM statuses WHERE id=?",
+                new BeanPropertyRowMapper<>(Status.class), id)
                 .stream()
                 .findAny()
                 .orElse(null);

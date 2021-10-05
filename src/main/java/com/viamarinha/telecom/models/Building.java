@@ -1,29 +1,21 @@
 package com.viamarinha.telecom.models;
 
-
 import lombok.*;
 
 import java.util.List;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @RequiredArgsConstructor
 
-@ToString
-
-public class Region {
+public class Building {
 
     @NonNull
     private int id;
     @NonNull
-    private String code;
-    @NonNull
     private String shortName;
     @NonNull
-    private int cityId;
-
-    @Singular
-    private List<Address> addressees;
-
+    private int adressId;
+    private List<Onu> onuList;
 }

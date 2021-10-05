@@ -28,4 +28,8 @@ public class RegionService {
     public void updateRegion(int id, Region region) {
         regionDao.updateRegion(id, region);
     }
+
+    public void addNewRegion(Region region) {
+        regionDao.addNewRegion(region);
+    }
 }

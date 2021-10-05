@@ -25,6 +25,19 @@ public class RegionController {
         return "regions/allRegions";
     }
 
+    @GetMapping("/addNewRegion")
+    public String addNewRegion(Model model){
+        model.addAttribute("region", new Region());
+        return "regions/newRegion";
+    }
+
+    @PostMapping("/new")
+    public String createNewRegion(@ModelAttribute("region") Region region){
+        regionService.addNewRegion(region);
+        return "redirect: /regions/allRegions";
+    }
+
+
     @GetMapping("/getRegionById/{id}")
     public String getRegionById(@PathVariable("id") int id, Model model) {
         model.addAttribute("region", regionService.getRegionById(id));

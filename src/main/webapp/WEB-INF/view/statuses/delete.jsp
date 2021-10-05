@@ -11,6 +11,7 @@
 
 <form:form method="DELETE" action="/status/deleteStatus/${status.id}" modelAttribute="status">
 
+    Status to be deleted <c:out value="${status.id}"/>
     <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
     ${lineBreaks}
     <input type="submit" value="Delete Status">

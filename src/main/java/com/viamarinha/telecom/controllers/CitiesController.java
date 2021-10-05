@@ -2,7 +2,9 @@ package com.viamarinha.telecom.controllers;
 
 import com.viamarinha.telecom.models.City;
 import com.viamarinha.telecom.services.CitiesService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,9 @@ public class CitiesController {
 
     private CitiesService citiesService;
 
+   @Value("${city.redirectAllCities}")
+   private String redirect;
+
     @Autowired
     public CitiesController(CitiesService citiesService) {
         this.citiesService = citiesService;
@@ -21,7 +26,7 @@ public class CitiesController {
     @GetMapping("/getAllCities")
     public String getAllCities(Model model) {
         model.addAttribute("cities", citiesService.getAllCities());
-        return "/cities/allCities";
+        return redirect;
     }
 
     @GetMapping("/createNewCity")
@@ -33,7 +38,8 @@ public class CitiesController {
     @PostMapping("/new")
     public String create(@ModelAttribute("city") City city) {
         citiesService.addNewCity(city);
-        return "redirect:/cities/getAllCities";
+
+        return redirect;
     }
 
 
@@ -52,7 +58,7 @@ public class CitiesController {
     @PatchMapping("/update/{id}")
     public String update(@PathVariable("id") int id, @ModelAttribute("city") City city) {
         citiesService.updateCity(id, city);
-        return "redirect:/cities/getAllCities";
+        return redirect;
     }
 
     @GetMapping("/deleteCity/{id}")
@@ -64,6 +70,6 @@ public class CitiesController {
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable("id") int id) {
         citiesService.delete(id);
-        return "redirect:/cities/getAllCities";
+        return redirect;
     }
 }

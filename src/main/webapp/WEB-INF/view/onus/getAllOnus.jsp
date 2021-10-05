@@ -3,21 +3,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>All Regions</title>
+    <title>All Onus representations</title>
 </head>
 <body>
-<c:forEach var="region" items="${regions}">
+<c:forEach var="onu" items="${onus}">
 
-    <c:out value="${region.code}"/>
-    <c:out value="${region.id}"/>
-    <c:out value="${region.shortName}"/>
-    <c:out value="${region.cityId}"/>
-    Addresses <c:forEach var="address" items="${region.addressees}">
-    <c:out value="${address}"/>
-
-</c:forEach>
-
-
+    <c:out value="${onu.id}"/>
+    <c:out value="${onu.shortName}"/>
+    <c:out value="${onu.serialNumber}"/>
+    <c:out value="${onu.buildingId}"/>
 
     <p><custom:lineToBreakLine value="${fn:escapeXml(text)}" var="lineBreaks"/></p>
     ${lineBreaks}
